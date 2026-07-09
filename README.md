@@ -1,4 +1,4 @@
-# 👋 Hi, I'm Harun Ndoro
+# 👋 Hi, I'm Harun 
 
 ## Full-Stack Software Developer | Cybersecurity Enthusiast | Purple Team Learner
 
