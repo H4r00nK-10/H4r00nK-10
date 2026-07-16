@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+.dark { color-scheme: dark; }
+body { @apply bg-slate-50 text-slate-950 antialiased dark:bg-[#050814] dark:text-white; }
+.glass { @apply border border-white/30 bg-white/80 shadow-glow backdrop-blur-2xl dark:border-white/10 dark:bg-white/10; }
+.leaflet-popup-content-wrapper { border-radius: 24px; box-shadow: 0 24px 80px rgba(15, 23, 42, .25); }
+.leaflet-popup-content { margin: 12px; }

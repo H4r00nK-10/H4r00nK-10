@@ -1,0 +1,51 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+
+model User {
+  id String @id @default(cuid())
+  name String?
+  email String @unique
+  createdAt DateTime @default(now())
+  confirmations Confirmation[]
+}
+
+model Report {
+  id String @id @default(cuid())
+  title String
+  description String
+  imageUrl String
+  latitude Float
+  longitude Float
+  category String
+  severity String
+  impactScore Int
+  priority String
+  department String
+  estimatedResolution String
+  aiExplanation String?
+  confidence Int @default(0)
+  impactReason String?
+  potentialConsequences String?
+  immediateAction String?
+  communityConfidence Int @default(0)
+  evidenceCount Int @default(0)
+  safetyRisk String?
+  accessibilityImpact String?
+  environmentalImpact String?
+  peopleAffected String?
+  status String @default("Reported")
+  createdAt DateTime @default(now())
+  confirmations Confirmation[]
+}
+
+model Confirmation {
+  id String @id @default(cuid())
+  reportId String
+  userId String
+  evidenceUrl String?
+  note String?
+  resolved Boolean @default(false)
+  createdAt DateTime @default(now())
+  report Report @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
